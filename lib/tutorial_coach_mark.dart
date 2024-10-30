@@ -149,7 +149,7 @@ class TutorialCoachMark {
   void skip() {
     bool removeOverlay = onSkip?.call() ?? true;
     if (removeOverlay) {
-      _removeOverlay();
+      _removeOverlay(withRevertAnimation: true);
     } else {
       next();
     }
@@ -165,8 +165,16 @@ class TutorialCoachMark {
 
   void goTo(int index) => _widgetKey.currentState?.goTo(index);
 
-  void _removeOverlay() {
-    _overlayEntry?.remove();
-    _overlayEntry = null;
+  void _removeOverlay({bool withRevertAnimation = false}) {
+    if (withRevertAnimation) {
+      _widgetKey.currentState?.revertAnimation();
+      Future.delayed(unFocusAnimationDuration, () {
+        _overlayEntry?.remove();
+        _overlayEntry = null;
+      });
+    } else {
+      _overlayEntry?.remove();
+      _overlayEntry = null;
+    }
   }
 }

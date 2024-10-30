@@ -101,3 +101,7 @@ app.*.symbols
 example/pubspec.lock
 pubspec.lock
 tutorial_coach_mark.iml
+
+# FVM Version Cache
+.fvm/
+/.fvmrc

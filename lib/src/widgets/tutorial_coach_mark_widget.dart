@@ -264,6 +264,9 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget>
       opacity: showContent ? 1 : 0,
       duration: const Duration(milliseconds: 300),
       child: InkWell(
+        highlightColor: Colors.transparent,
+        hoverColor: Colors.transparent,
+        splashColor: Colors.transparent,
         onTap: skip,
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -296,4 +299,6 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget>
   void previous() => _focusLightKey.currentState?.previous();
 
   void goTo(int index) => _focusLightKey.currentState?.goTo(index);
+
+  void revertAnimation() => _focusLightKey.currentState?.revertAnimation();
 }

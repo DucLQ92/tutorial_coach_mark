@@ -120,8 +120,12 @@ abstract class AnimatedFocusLightState extends State<AnimatedFocusLight>
     _revertAnimation();
   }
 
+  void revertAnimation() {
+    _revertAnimation();
+  }
+
   Future _tapHandler({
-    bool targetTap = false,
+    bool targetTap = true,
     bool overlayTap = false,
   }) async {
     nextIndex++;
