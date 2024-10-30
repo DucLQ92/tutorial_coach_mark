@@ -125,7 +125,7 @@ abstract class AnimatedFocusLightState extends State<AnimatedFocusLight>
   }
 
   Future _tapHandler({
-    bool targetTap = true,
+    bool targetTap = false,
     bool overlayTap = false,
   }) async {
     nextIndex++;
